@@ -1,0 +1,9 @@
+Next Day Topic
+#Git manipulation
+-Pull Request
+-Pull from another Repo
+-Readme.ad file configuration
+#Jenkins Installation and conf
+-Jenkins Installation
+-Global Variable config and Configuration Management
+-Simple Project Creation with command line Output
