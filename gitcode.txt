@@ -1,0 +1,31 @@
+echo "# newtest" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/mehediapee/testdevops.git
+git push -u origin main
+
+
+
+git clone https://github.com/mhasan029/DevOpsTraining.git
+cd DevOpsTraining/
+git add .
+git config --global user.email "mhasan.sust@gmail.com"
+git commit -m "document will be added"
+git push origin main
+
+
+/////////
+
+echo "# resources" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/mehediapee/resources.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/mehediapee/resources.git
+git branch -M main
+git push -u origin main
