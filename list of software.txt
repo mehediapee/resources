@@ -1,0 +1,8 @@
+1. Install virtual box
+2. create 2 vm centos7 minimal
+3. jdk install in centos7
+4. Gitbash install
+5. eclipse ide install
+6. visual studio install
+7. sublime text editor install
+8. create documentation for every task
