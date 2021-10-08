@@ -7,3 +7,8 @@ Next Day Topic
 -Jenkins Installation
 -Global Variable config and Configuration Management
 -Simple Project Creation with command line Output
+#Jenkins conf:
+1. Global Variable and config
+2. Create a Simple Project with command line
+3. Create a pipeline project 
+4. How to add nodes in Jenkins
