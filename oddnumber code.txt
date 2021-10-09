@@ -1,0 +1,21 @@
+package testbed;
+import java.util.Scanner;
+class Even_Oddtill4{
+public static void main (String args[]){
+int i;
+Scanner scan=new Scanner(System.in);
+System.out.print("Print all odd number until:\n");
+int num=scan.nextInt();
+System.out.print("odd number from i to "+num+" are: \n");
+
+i=1;
+do {
+	if(i%2==1){
+		System.out.print(i+"\n");
+		}
+		i++;
+		}
+		while(i<=num);
+		 
+		}
+}
