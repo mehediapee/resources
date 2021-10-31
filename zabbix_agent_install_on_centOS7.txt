@@ -1,0 +1,71 @@
+Install Zabbix Agent on CentOS/RHEL 7/6
+
+Zabbix Agent is required to install on all remote systems needs to be monitor through Zabbix server. 
+The Zabbix Agent collects resource utilization data and applications data on the client system and provides 
+such information to Zabbix server on their requests.
+
+There are two types of checks between Zabbix Server and Client.
+
+Passive Check – Zabbix Agent sent data to server on their request.
+Active Check – Zabbix Agent sends data periodically to server.
+
+Step 1 – Add Required Repository (you can download in any location)
+=================================================================================
+CentOS/RHEL 7:
+# rpm -Uvh https://repo.zabbix.com/zabbix/4.2/rhel/7/x86_64/zabbix-release-4.2-2.el7.noarch.rpm
+
+
+
+Step 2 – Install Zabbix Agent
+=================================================================================
+# yum install zabbix zabbix-agent
+
+
+
+Step 3 – Zabbix Agent Configuration
+=================================================================================
+
+Now we just need to configure Zabbix agent by adding Zabbix server IP to the configuration file 
+# vi /etc/zabbix/zabbix_agentd.conf
+
+#Server=[zabbix server ip/DNS]
+#Hostname=[ Hostname of client system ]
+
+Example:
+Server=zabbix.devops-bjit.com
+Hostname=Server1
+
+
+#ServerActive=[zabbix server ip/DNS]
+Example:
+#ServerActive=zabbix.devops-bjit.com
+
+
+Step 4 – Open Port
+=================================================================================
+Zabbix agent uses 10050/tcp port. You are required to open this port to allow Zabbix server with the agent.
+Execute command to open port in iptables firewall where 192.168.56.102 is IP of Zabbix server.
+
+# iptables -A INPUT -p tcp -s 192.168.56.102 --dport 10050 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+As CentOS 7 has Firewalld Service so use below:
+# firewall-cmd --permanent --add-service=http
+# firewall-cmd --permanent --zone=public --add-port=10051/tcp
+# firewall-cmd --permanent --zone=public --add-port=10050/tcp
+# firewall-cmd --reload 
+
+
+Step 5 – Restarting Zabbix Agent
+=================================================================================
+# service zabbix-agent restart
+
+
+
+
+To start and stop zabbix-agent service anytime use following commands.
+# service zabbix-agent start
+# service zabbix-agent stop
+
+Now need to add host in zabbix server to be monitory.
+
+

@@ -1,8 +1,8 @@
 Next Day Topic
 #Git manipulation
--Pull Request
--Pull from another Repo
--Readme.ad file configuration
+Pull Request
+Pull from another Repo
+Readme.ad file configuration
 #Jenkins Installation and conf
 -Jenkins Installation
 -Global Variable config and Configuration Management
@@ -12,3 +12,43 @@ Next Day Topic
 2. Create a Simple Project with command line
 3. Create a pipeline project 
 4. How to add nodes in Jenkins
+
+
+091021
+/////////
+Task :
+======
+1. Check how a UserGroup Created and User assigned in that group in Linux and also how to transfer a user in Root Group
+   1. Open up the this script (using VIM or other editor):
+
+   vim /etc/sysconfig/jenkins
+2. Find this $JENKINS_USER and change to “root”:
+
+$JENKINS_USER="root"
+3. Then change the ownership of Jenkins home, webroot and logs:
+
+chown -R root:root /var/lib/jenkins
+chown -R root:root /var/cache/jenkins
+chown -R root:root /var/log/jenkins
+4) Restart Jenkins and check the user has been changed:
+
+service jenkins restart
+ps -ef | grep jenkins
+   
+2. Create a index.html/any file and transfer that file from any location to Tomcat folder (you could do with Groovy syntax or Script)
+and also restart the tomcat.
+3. Write a code of Fibonacci Series (First 10 iteration) and print the series as well as Addition (Addition Result should be printed in main Function) 
+
+Tomcat Installation Test:
+
+wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.0.M17/bin/apache-tomcat-9.0.0.M17.tar.gz
+tar -zxpvf apache-tomcat-9.0.0.M17.tar.gz -C /opt/
+cd /opt/
+mv apache-tomcat-9.0.0.M17.tar.gz tomcat
+echo "export CATALINA_HOME='/opt/tomcat/'" >> ~/.bashrc
+source ~/.bashrc
+
+cd /opt/tomcat/bin/
+./startup.sh
+
+Tomcat web file create:
